@@ -70,7 +70,7 @@ f.datalik<-function(data, v.alpha, v.beta, v.eta, v.etak, v.z, v.muk){
   v.theta<-v.z%*%t(v.muk)
   v.null<-exp(outer(v.alpha, v.beta, "+"))
   v.pop<-cp.fcn(v.eta)
-  v.distr<-cp.fcn(v.etak)/(cp.fcn(.000001)*cp.fcn(sqrt((v.eta^2)+(v.etak^2)+(2*v.eta*v.etak*cos(v.theta)))))
+  v.distr<-cp.fcn(v.etak)/(cp.fcn(.000001)*cp.fcn(sqrt((v.eta^2)+(v.etak^2)+(2*v.eta*v.etak*cos(acos(v.theta))))))
   v.lambda<-v.null*v.pop*v.distr
 
   prob.y<-(-v.lambda)+(data*log(v.lambda))-log(factorial(data))
